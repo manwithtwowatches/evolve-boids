@@ -1,0 +1,55 @@
+body {
+	background-color: #787bad;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.inputs input[type=text]{
+	width: 50px;
+}
+
+.left {
+	float: left;
+	width: 150px;
+	height: 493px;
+	padding: 20px;
+}
+.middle {
+	float: left;
+	width: 800px;
+	padding: 10px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;:
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.footertext {
+	text-align: center;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.right {
+	float: left;
+	width: 200px;
+}
+
+.Nav {
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-align: center;
+	margin-top: 12px;
+}
