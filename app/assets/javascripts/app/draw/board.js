@@ -4,19 +4,19 @@
 function Board(theCanvas){
 	this.canvas = theCanvas;
 	this.drawPixels = 0;
-}
+};
 
 /* Begin Observing Methods */
 
 Board.prototype.GetSurroundingPixels = function(x, y, d){
 	return this.canvas.getPixels(
 			{
-				x : x - d / 2, 
-	       		y : y - d / 2, 
-	       		width : d, 
+				x : x - d / 2,
+	       		y : y - d / 2,
+	       		width : d,
 	       		height : d
 			});
-}
+};
 
 /* End Drawing Methods */
 
@@ -25,19 +25,17 @@ Board.prototype.GetSurroundingPixels = function(x, y, d){
 Board.prototype.GetAllPixels = function(){
 	var ps = this.canvas.getPixels(
 		{
-			x : 0, 
-	       	y : 0, 
-	       	width : this.canvas[0].width, 
+			x : 0,
+	       	y : 0,
+	       	width : this.canvas[0].width,
 	       	height : this.canvas[0].height
 		});
-		
 	return ps;
-}
+};
 
 Board.prototype.DrawPixels = function(x, y, width, height, pixelMatrices){
 	// setPixels expects flat array of rgba
 	var pixels = getFlatArray(pixelMatrices);
-	
 	return this.canvas.setPixelBlock(
 	{
 		x : x, y : y,
@@ -45,7 +43,7 @@ Board.prototype.DrawPixels = function(x, y, width, height, pixelMatrices){
 		height : height,
 		pixels: pixels,
 	});
-}
+};
 
 Board.prototype.DrawCircle = function(colour, x, y, radius){
 	this.canvas.drawArc({
@@ -53,7 +51,7 @@ Board.prototype.DrawCircle = function(colour, x, y, radius){
 		x: x, y: y,
 		radius: radius
 	});
-}
+};
 
 Board.prototype.DrawRect = function(colour, x, y, width, height, fromCenter){
 	this.canvas.drawRect({
@@ -63,7 +61,7 @@ Board.prototype.DrawRect = function(colour, x, y, width, height, fromCenter){
 		height: height,
 		fromCenter: fromCenter
 	});
-}
+};
 
 Board.prototype.DrawEllipse = function(colour, x, y, width, height, fromCenter){
 	this.canvas.drawArc({
@@ -73,7 +71,7 @@ Board.prototype.DrawEllipse = function(colour, x, y, width, height, fromCenter){
 		height: height,
 		fromCenter: fromCenter
 	});
-}
+};
 
 Board.prototype.Clear = function(canvasWidth, canvasHeight){
 	this.canvas.drawRect({
@@ -82,6 +80,6 @@ Board.prototype.Clear = function(canvasWidth, canvasHeight){
 		width: canvasWidth,
 		height: canvasHeight
 	});
-}
+};
 
 /* End Drawing Methods */

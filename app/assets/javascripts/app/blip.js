@@ -8,11 +8,11 @@ function Blip(body, board, desires){
         drawR: getRandomIntRange(0, 255),
         drawG: getRandomIntRange(0, 255),
         drawB: getRandomIntRange(0, 255)
-    };    
+    };
 
     this.modifyColours = function(){
         var ncd = normaliseColours(this.desires);
-        
+
         this.state.drawR = this.modifyColour(this.state.drawR, ncd.r);
         this.state.drawG = this.modifyColour(this.state.drawG, ncd.g);
         this.state.drawB = this.modifyColour(this.state.drawB, ncd.b);
@@ -22,7 +22,7 @@ function Blip(body, board, desires){
         var urgency = 1 - (Math.abs(colour - 128) / 128);
 
         var weight = Math.floor(((desire * 2) - 0.5) * urgency);
-        
+
         var modColour = colour + getRandomIntRange(-4, 4) + weight;
         if(modColour < 0 || modColour > 255){
             return colour;
@@ -137,27 +137,26 @@ Blip.prototype.applyForceFrom = function(fromPoint){
     // This is only really to allow testing manually with mouse
     var cPos = this.body.getCenterPosition();
     var distance = eucDistance(cPos, fromPoint);
-	
+
     var reach = this.desires.s;
-	
+
     if(distance < reach){
         var xCom = cPos.x - fromPoint.x, yCom = cPos.y - fromPoint.y;
         var weight = 1 - (distance / reach);
         var force = new b2Vec2(weight * xCom * 500000,
             weight * yCom * 500000);
-		
+
         this.body.WakeUp();
         this.body.ApplyForce(force, fromPoint);
-		
+
         return 1;
     }
-	
     return 0;
 }
 
 Blip.prototype.move = function(otherBlips){
     var vs = [];
-    
+
     // Random Movement
     var rForce = new b2Vec2(getRandomInt(2), getRandomInt(2));
     rForce.Normalize()
