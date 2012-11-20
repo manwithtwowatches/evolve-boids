@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  f1: MyString
+  f2: MyString
+  v1: 1.5
+  v2: 1.5
+  gene: 
+
+two:
+  f1: MyString
+  f2: MyString
+  v1: 1.5
+  v2: 1.5
+  gene: 
